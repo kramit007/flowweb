@@ -1,0 +1,22 @@
+
+ErrorDocument 404 /error/errors_404.html
+ErrorDocument 403 /error/errors_403.html
+
+
+Options -Indexes
+#Options +Indexes
+
+
+#IndexIgnore *.pdf *.jpg *.png *
+
+#Html
+RewriteEngine on 
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html [NC,L]
+
+#Php
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [NC,L] 
